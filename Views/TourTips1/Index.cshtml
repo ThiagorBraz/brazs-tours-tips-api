@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BrazsToursTipsAPI.Models.TourTip>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TourName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TourTip1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TourName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TourTip1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TourTipId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TourTipId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TourTipId })
+        </td>
+    </tr>
+}
+
+</table>
